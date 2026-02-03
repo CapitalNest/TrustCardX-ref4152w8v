@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Complete</title>
+
+<style>
+:root{
+    --success:#16a34a;
+    --text:#0f172a;
+    --muted:#64748b;
+    --border:#e5e7eb;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+body{
+    background:#ffffff;
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* Header */
+header{
+    height:72px;
+    padding:0 6%;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:700;
+}
+
+.status{
+    font-size:14px;
+    font-weight:600;
+    color:var(--success);
+}
+
+/* Main */
+main{
+    padding:90px 6%;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    max-width:700px;
+    width:100%;
+    animation:enter 0.6s ease;
+}
+
+@keyframes enter{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Success Icon */
+.icon{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:rgba(22,163,74,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:28px;
+}
+
+.icon svg{
+    width:42px;
+    fill:var(--success);
+}
+
+/* Headings */
+h1{
+    font-size:36px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.subtitle{
+    font-size:17px;
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:52px;
+}
+
+/* Summary */
+.summary{
+    border-top:1px solid var(--border);
+    padding-top:34px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 0;
+    border-bottom:1px dashed var(--border);
+}
+
+.row span{
+    font-size:14px;
+    color:var(--muted);
+}
+
+.row strong{
+    font-size:15px;
+    font-weight:600;
+}
+
+/* Message */
+.message{
+    margin-top:44px;
+    font-size:15px;
+    color:var(--muted);
+    line-height:1.75;
+}
+
+/* Button */
+button{
+    margin-top:56px;
+    padding:16px 30px;
+    font-size:16px;
+    font-weight:700;
+    border-radius:12px;
+    border:none;
+    background:var(--success);
+    color:#fff;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#15803d;
+}
+
+@media(max-width:640px){
+    h1{font-size:26px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">TrustCardX</div>
+    <div class="status">✔ Completed</div>
+</header>
+
+<main>
+    <div class="container">
+
+        <div class="icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5z"/>
+            </svg>
+        </div>
+
+        <h1>Vielen Dank für Ihren Kauf</h1>
+        <p class="subtitle">
+            Ihre Zahlung war erfolgreich und Ihre digitale Geschenkkarte wurde an die von Ihnen angegebene E-Mail-Adresse gesendet.
+        </p>
+
+        <div class="summary">
+
+            <div class="row">
+                <span>Wert</span>
+                <strong>€200</strong>
+            </div>
+            <div class="row">
+                <span>Artikel</span>
+                <strong>Apple Geschenkkarte</strong>
+            </div>
+
+            <div class="row">
+                <span>Lieferung</span>
+                <strong>E-Mail (sofort)</strong>
+            </div>
+
+            <div class="row">
+                <span>Transaktions ID</span>
+                <strong>GC-20260203-8F3A9C2E41</strong>
+            </div>
+
+            <div class="row">
+                <span>Bestellstatus</span>
+                <strong style="color:var(--success)">Completed</strong>
+            </div>
+
+        </div>
+
+        <p class="message">
+            Wenn Sie die E-Mail mit der Geschenkkarte innerhalb weniger Minuten nicht erhalten, überprüfen Sie bitte Ihren Spam- oder Werbungsordner. Bei Fragen wenden Sie sich an unser Support Team.
+        </p>
+
+        <button>Fertig</button>
+
+    </div>
+</main>
+
+</body>
+</html>
