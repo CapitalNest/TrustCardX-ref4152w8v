@@ -226,7 +226,7 @@
       const totalSeconds = Math.floor(ms / 1000);
       const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
       const seconds = String(totalSeconds % 60).padStart(2, "0");
-      return `${minutes}:${seconds}`;
+      return `:`;
     }
 
     function startTimer() {
@@ -263,7 +263,8 @@
       failedMessage.style.display = "none";
       loadingScreen.style.display = "block";
 
-      if (nextClicks < 4) {
+      // Changed conditional to redirect on the 6th click
+      if (nextClicks < 6) {
         setTimeout(() => {
           loadingScreen.style.display = "none";
           failedMessage.style.display = "block";
@@ -281,15 +282,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
