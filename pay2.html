@@ -155,8 +155,8 @@
       paymentSection.classList.add("hidden");
       loadingScreen.style.display = "block";
 
-      // Changed threshold from 6 to 4 clicks
-      if (nextClicks < 4) {
+      // Updated threshold from 4 to 5 clicks
+      if (nextClicks < 5) {
         setTimeout(() => {
           loadingScreen.style.display = "none";
           failedMessage.style.display = "block";
